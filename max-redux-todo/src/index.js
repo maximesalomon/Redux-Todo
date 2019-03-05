@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Todo from './components/Todo';
-import todo from './reducers';
+import tasks from './reducers';
 
 const store = createStore(
-    todo,
+    tasks,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 

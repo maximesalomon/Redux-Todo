@@ -1,26 +1,18 @@
-import React, { Component } from "react";
-import { connect } from 'react-redux';
-import { addTodo } from '../actions';
-import { bindActionCreators } from 'redux';
+import React from 'react';
 
-class Todo extends Component {
-    render() {
-        return (
-            <h1>Redux Todo</h1>
-        );
-    }
-}
 
-const mapStateToProps = (state) => {
-    return {
-        count: state.count,
-    };
-};
+export default class Todo extends React.Component {
+  render() {
+    const { task, deleteTask, completeTask } = this.props;
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-      addTodo
-    }, dispatch);
+    return (
+        <>
+            <div className='text'>{task.text}</div>
+            <div>
+            <button onClick={() => deleteTask(task.id)}>Delete</button>
+            <button onClick={() => completeTask(task.id)}>Mark as completed</button>
+            </div>
+        </>
+    );
   }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+}

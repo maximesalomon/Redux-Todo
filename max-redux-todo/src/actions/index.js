@@ -1,5 +1,19 @@
-export const ADD_TODO = 'ADD_TODO';
+import uuid from 'uuid';
+import * as types from '../constants/actionTypes';
 
-export const addTodo = () => {
-  return { type: ADD_TODO };
-};
+export function addTodo(task) {
+  return {
+    type: types.ADD_TODO,
+    payload: {
+      id: uuid(),
+      task,
+    },
+  };
+}
+
+export function deleteTodo(id) {
+  return {
+    type: types.DELETE_TODO,
+    payload: id,
+  };
+}
